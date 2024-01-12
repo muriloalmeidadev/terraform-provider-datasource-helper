@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    ports:
+      - "9000:8080"
+  mariadb:
+    image: linuxserver/mariadb:latest
+    container_name: mariadb
+    ports:
+      - "3306:3306/tcp"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=admin
+      - MYSQL_USERNAME=admin
+      - MYSQL_PASSWORD=admin
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
